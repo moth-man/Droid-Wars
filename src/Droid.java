@@ -32,7 +32,11 @@ public class Droid {
 		this.damage = damage;
 	
 	}
-	public void move(Board board, Direction direction){
+	public void move(Board board, Position newPosition){
+		if(board.isValidPosition(newPosition))
+			this.setPosition(newPosition);
+		
+		//TODO: Throw exception if position is invalid
 		
 		
 	}
