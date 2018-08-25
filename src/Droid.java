@@ -1,17 +1,19 @@
+import java.util.List;
 
 public class Droid {
 
-	private String name;
+	private String teamName;
 	private int health;
 	private int damage;
 	private int range;
-	private Position position;
+	private DroidPosition droidPosition;
+	private List<DroidMove> moves;
 	
-	public String getName() {
-		return name;
+	public String getTeamName() {
+		return teamName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTeamName(String name) {
+		this.teamName = name;
 	}
 	public int getHealth() {
 		return health;
@@ -30,20 +32,36 @@ public class Droid {
 	}
 	public void setDamage(int damage) {
 		this.damage = damage;
+		
+	}
+	public DroidPosition getPosition() {
+		return droidPosition;
+	}
+	public void setPosition(DroidPosition droidPosition) {
+		this.droidPosition = droidPosition;
+	}
 	
+	
+	public void takeDamage(int damage){
+		this.health -= damage;
 	}
-	public void move(Board board, Position newPosition){
-		if(board.isValidPosition(newPosition))
-			this.setPosition(newPosition);
+	
+	
+	public void move(DroidMove droidMove){
+		if(droidMove.getMoveType().equals(DroidMove.MOVEABLE))
+			this.setPosition(droidMove.getDroidCell().getDroidPosition());
 		
-		//TODO: Throw exception if position is invalid
+		if(droidMove.getMoveType().equals(DroidMove.SHOOTABLE))
+			droidMove.getDroidCell().getDroid().takeDamage(this.damage);
+	}
+	
+	
+	public void analyzeCell(DroidCell droidCell){
+		if(droidCell.isEmpty())
+			this.moves.add(new DroidMove(droidCell, DroidMove.MOVEABLE));
 		
-		
+		if(!droidCell.getDroid().getTeamName().equals(this.teamName))
+			this.moves.add(new DroidMove(droidCell, DroidMove.SHOOTABLE));
 	}
-	public Position getPosition() {
-		return position;
-	}
-	public void setPosition(Position position) {
-		this.position = position;
-	}
+	
 }
