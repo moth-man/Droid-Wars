@@ -32,7 +32,7 @@ public class Droid {
 		this.damage = damage;
 	
 	}
-	public void move(Board board, Vector vector){
+	public void move(Board board, Direction direction){
 		
 		
 	}
