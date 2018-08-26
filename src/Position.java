@@ -23,4 +23,9 @@ public class Position {
 		this.y = y;
 	}
 	
+	public Position(double x, double y){
+		this.x = (int) x;
+		this.y = (int) y;
+	}
+	
 }

@@ -1,29 +1,18 @@
-
 public class DroidGame {
 	private DroidCell[] board;
-	private int length;
+	private int height;
 	private int width;
 	
-	/*
-	public DroidBoard(int length, int width) {
-		this.board = new Droid[length][width];
-	}
-
-	public Droid[][] getBoard() {
-		return board;
-	}
-
-	public boolean isValidPosition(Position position) {
-		return position.getX() < this.board.length && position.getX() >= 0 && position.getY() < this.board[0].length
-				&& position.getY() >= 0;
-
-	}
-	*/
 	
-	public DroidGame(int length, int width) {
-		this.length = length;
+	public DroidGame(int height, int width) {
+		this.height = height;
 		this.width = width;
-		this.board = new DroidCell[length*width];
+		this.board = new DroidCell[height*width];
+		
+		for(int c = 0; c < this.getBoard().length; c++){
+			Droid droidOrNull = Math.random() < 0.15? new Droid("Green"):null;
+			board[c] = new DroidCell(droidOrNull, new Position(c/height,c%width));
+		}
 		
 	}
 	
@@ -34,4 +23,9 @@ public class DroidGame {
 	public DroidCell getCell(int x, int y){
 		return board[width*x+y];
 	}
+	
+	public DroidCell getCell(int cellIndex){
+		return board[cellIndex/width];
+	}
+
 }
