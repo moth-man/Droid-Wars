@@ -57,6 +57,22 @@ public class Droid {
 		this.health -= damage;
 	}
 	
+	public List<DroidMove> getMoves() {
+		return moves;
+	}
+
+	public void setMoves(List<DroidMove> moves) {
+		this.moves = moves;
+	}
+
+	public void setHealth(double health) {
+		this.health = health;
+	}
+
+	public void setDamage(double damage) {
+		this.damage = damage;
+	}
+
 	/* Move : Takes a droid's move and moves to the cell if the cell is 
 	 * empty and therefore moveable, or fires at enemy in cell of move.
 	 */
