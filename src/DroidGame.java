@@ -1,28 +1,32 @@
 import java.util.List;
 
-public class DroidGame implements MiniMax{
+public class DroidGame {
 	private DroidCell[] board;
 	private List<DroidTeam> droidTeams;
 	private DroidTeam activeTeam;
 	private int height;
 	private int width;
 	
-	
+	// Droid Game : Creates game board using a one-dimensional array. Takes in array of team names
 	public DroidGame(int height, int width, String[] teamNames) {
 		this.height = height;
 		this.width = width;
 		this.board = new DroidCell[height*width];
 		
+		// Adds team names to droidTeams list
 		for(int w = 0; w < teamNames.length; w++)
 			droidTeams.add(new DroidTeam(teamNames[w]));
 		
+		// Picks a random team from droidTeams and assigns a Droid or null space to cell
 		for(int c = 0; c < this.getBoard().length; c++){
 			DroidTeam randomTeam = droidTeams.get((int)Math.random()*teamNames.length);
 			Droid droidOrNull = Math.random() < 0.15? new Droid(randomTeam.getName()):null;
 			
+			// Adds droid to DroidsList on specified random team
 			if(droidOrNull != null)
 				randomTeam.getDroidsList().add(droidOrNull);
 			
+			// Assigns DroidCell with droidOrNull and a position with x & y
 			board[c] = new DroidCell(droidOrNull, new Position(c/height,c%width));
 		}
 		

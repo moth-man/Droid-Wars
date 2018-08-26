@@ -40,8 +40,7 @@ public class Droid {
 		return damage;
 	}
 	public void setDamage(int damage) {
-		this.damage = damage;
-		
+		this.damage = damage;	
 	}
 	public Position getPosition() {
 		return position;
@@ -49,14 +48,6 @@ public class Droid {
 	public void setPosition(Position position) {
 		this.position = position;
 	}
-	
-	/* Take Damage : Droid takes damage from shot, subtracting health 
-	 * of shot-droid from damage of firing-droid.
-	 */
-	public void takeDamage(double damage){
-		this.health -= damage;
-	}
-	
 	public List<DroidMove> getMoves() {
 		return moves;
 	}
@@ -72,9 +63,20 @@ public class Droid {
 	public void setDamage(double damage) {
 		this.damage = damage;
 	}
+	
+	
+	/* Take Damage : Droid takes damage from shot, subtracting damage
+	 * of firing-droid from health of shot-droid.
+	 */
+	public void takeDamage(double damage){
+		this.health -= damage;
+	}
+	
+
 
 	/* Move : Takes a droid's move and moves to the cell if the cell is 
-	 * empty and therefore moveable, or fires at enemy in cell of move.
+	 * empty and therefore moveable, or fires at enemy in cell of move,
+	 * thus shootable.
 	 */
 	public void move(DroidMove droidMove){
 		if(droidMove.getMoveType().equals(DroidMove.MOVEABLE))

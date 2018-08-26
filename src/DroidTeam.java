@@ -7,6 +7,13 @@ public class DroidTeam {
 	private List<Droid> droidsList;
 	private List<DroidMove> movesList;
 	
+
+	public DroidTeam(String name){
+		this.setName(name);
+		this.droidsList = new ArrayList<Droid>();
+	}
+	
+	
 	public List<DroidMove> getMovesList() {
 		movesList = new ArrayList<DroidMove>();
 		for(Droid droid : droidsList)
@@ -24,11 +31,6 @@ public class DroidTeam {
 
 	public void setDroidsList(List<Droid> droidsList) {
 		this.droidsList = droidsList;
-	}
-
-	public DroidTeam(String name){
-		this.setName(name);
-		this.droidsList = new ArrayList<Droid>();
 	}
 
 	public String getName() {

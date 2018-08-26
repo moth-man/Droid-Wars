@@ -5,7 +5,7 @@ public class MiniMax {
 	public double minimize(DroidGame game, int depth) {
 		for(Droid droid : game.getActiveTeam().getDroidsList()){
 			for(DroidMove move : droid.getMoves()){
-				game.getBoard().get
+			//	game.getBoard().get
 			}
 		}
 		return 0;

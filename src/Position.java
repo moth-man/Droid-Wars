@@ -17,12 +17,13 @@ public class Position {
 		this.y = y;
 	}
 	
-	//Universal constructor for position
+	//Constructor
 	public Position(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
+	//Overloaded constructor for double parameters
 	public Position(double x, double y){
 		this.x = (int) x;
 		this.y = (int) y;
