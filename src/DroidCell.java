@@ -2,11 +2,11 @@
 public class DroidCell {
 
 	private Droid droid;
-	private DroidPosition droidPosition;
+	private Position position;
 	
-	public DroidCell(Droid droid, DroidPosition droidPosition){
+	public DroidCell(Droid droid, Position position){
 		this.droid = droid;
-		this.droidPosition = droidPosition;
+		this.position = position;
 	}
 	
 	public boolean isEmpty(){
@@ -21,11 +21,11 @@ public class DroidCell {
 		this.droid = droid;
 	}
 
-	public DroidPosition getDroidPosition() {
-		return droidPosition;
+	public Position getPosition() {
+		return position;
 	}
 
-	public void setDroidPosition(DroidPosition droidPosition) {
-		this.droidPosition = droidPosition;
+	public void setDroidPosition(Position position) {
+		this.position = position;
 	}
 }
