@@ -24,7 +24,8 @@ public class DroidGame {
 		// Picks a random team from droidTeams and assigns a Droid or null space to cell
 		for (int c = 0; c < this.getBoard().length; c++) {
 			Position currentPosition = new Position(c / height, c % width);
-			DroidTeam randomTeam = droidTeams.get((int) Math.random() * teamNames.length);
+			Integer randomTeamIndex = (int) (Math.random() * teamNames.length);
+			DroidTeam randomTeam = droidTeams.get(randomTeamIndex);
 			Droid droidOrNull = Math.random() < 0.15 ? new Droid(randomTeam.getName(), currentPosition) : null;
 
 			// Adds droid to DroidsList on specified random team

@@ -13,8 +13,8 @@ public class Droid {
 		this.teamName = teamName;
 		this.health = Math.random();
 		this.damage = Math.random();
-		this.range = 3;
 		this.position = position;
+		this.range = 3;
 
 	}
 
