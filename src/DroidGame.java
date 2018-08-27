@@ -6,15 +6,17 @@ public class DroidGame {
 	private DroidTeam activeTeam;
 	private int height;
 	private int width;
+	private String[] teamNames;
 	
 	// Droid Game : Creates game board using a one-dimensional array. Takes in array of team names
 	public DroidGame(int height, int width, String[] teamNames) {
 		this.height = height;
 		this.width = width;
 		this.board = new DroidCell[height*width];
+		this.teamNames = teamNames;
 		
 		// Adds team names to droidTeams list
-		for(int w = 0; w < teamNames.length; w++)
+		for(int w = 0; w <= teamNames.length-1; w++)
 			droidTeams.add(new DroidTeam(teamNames[w]));
 		
 		// Picks a random team from droidTeams and assigns a Droid or null space to cell
@@ -52,10 +54,12 @@ public class DroidGame {
 		this.activeTeam = activeTeam;
 	}
 
+	/*
 	@Override
 	public boolean isOver() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	*/
 
 }

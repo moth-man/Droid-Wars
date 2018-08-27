@@ -107,5 +107,9 @@ public class Droid {
 			this.moves.add(new DroidMove(droidCell, DroidMove.SHOOTABLE));
 	}
 	
+	public void stats(){
+		System.out.print("(Team: " + this.teamName + ", Health: " + this.health + ", Damage: "
+				+ this.damage + ", Position: " + this.position + ")");
+	}
 	
 }
