@@ -108,7 +108,7 @@ public class Droid {
 	}
 	
 	public void stats(){
-		System.out.print("(Team: " + this.teamName + ", Health: " + this.health + ", Damage: "
+		System.out.println("(Team: " + this.teamName + ", Health: " + this.health + ", Damage: "
 				+ this.damage + ", Position: " + this.position + ")");
 	}
 	

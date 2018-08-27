@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class DroidGame {
@@ -14,10 +15,13 @@ public class DroidGame {
 		this.width = width;
 		this.board = new DroidCell[height*width];
 		this.teamNames = teamNames;
+		this.droidTeams = new ArrayList<DroidTeam>();
 		
 		// Adds team names to droidTeams list
-		for(int w = 0; w <= teamNames.length-1; w++)
-			droidTeams.add(new DroidTeam(teamNames[w]));
+		for(int w = 0; w < teamNames.length; w++){
+			if(teamNames != null)
+					droidTeams.add(new DroidTeam(teamNames[w]));
+		}
 		
 		// Picks a random team from droidTeams and assigns a Droid or null space to cell
 		for(int c = 0; c < this.getBoard().length; c++){
@@ -41,7 +45,7 @@ public class DroidGame {
 	public DroidCell getCell(int x, int y){
 		return board[width*x+y];
 	}
-	
+	// OVERLOAD
 	public DroidCell getCell(int cellIndex){
 		return board[cellIndex/width];
 	}
