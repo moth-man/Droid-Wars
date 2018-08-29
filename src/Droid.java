@@ -11,8 +11,8 @@ public class Droid {
 	
 	public Droid(String teamName) {
 		this.teamName = teamName;
-		health = Math.random();
-		damage = Math.random();
+		health = (int)Math.random()*10;
+		damage = (int)Math.random()*10;
 		range = 3;
 		
 	}
@@ -86,6 +86,9 @@ public class Droid {
 			droidMove.getDroidCell().getDroid().takeDamage(this.damage);
 	}
 	
+	/* In-Range : Calculates the Euclidean distance of one droid to 
+	 * another and returns true if it is in-fact in range to shoot at.
+	 */
 	public boolean inRange(DroidCell droidCell, int range){
 		double euclidX = Math.pow(droidCell.getPosition().getX()-this.getPosition().getX(),2);
 		double euclidY = Math.pow(droidCell.getPosition().getY()-this.getPosition().getY(), 2);
@@ -107,6 +110,9 @@ public class Droid {
 			this.moves.add(new DroidMove(droidCell, DroidMove.SHOOTABLE));
 	}
 	
+	/* Stats : Prints the statistics of the droid.
+	 * 
+	 */
 	public void stats(){
 		System.out.println("(Team: " + this.teamName + ", Health: " + this.health + ", Damage: "
 				+ this.damage + ", Position: " + this.position + ")");

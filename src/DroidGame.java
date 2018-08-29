@@ -9,7 +9,9 @@ public class DroidGame {
 	private int width;
 	private String[] teamNames;
 	
-	// Droid Game : Creates game board using a one-dimensional array. Takes in array of team names
+	/* Droid Game : Creates game board using a one-dimensional array. 
+	 * Takes in dimensions and array of team names.
+	 */
 	public DroidGame(int height, int width, String[] teamNames) {
 		this.height = height;
 		this.width = width;
