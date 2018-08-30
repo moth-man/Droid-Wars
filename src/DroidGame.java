@@ -67,16 +67,20 @@ public class DroidGame {
 	public void printBoard(int height, int width){
 		for(int i = 0; i < height; i++){
 			for(int j = 0; j < width; j++){
-				if(i == 0){
-					System.out.print(j);
-				} else if (j == 0){
-					System.out.print(i);
-				} else {
-					System.out.print("-");
+				for(DroidCell cell : this.getBoard()){
+					if(i == 0){
+						System.out.print(j);
+					} else if(j == 0){
+						System.out.print(i);
+					} else if(cell.getDroid() == null){
+						System.out.print("-");
+					} else {
+						System.out.print("X");
+					}
+					System.out.print(" ");
 				}
-				System.out.print(" ");
+				System.out.println();
 			}
-			System.out.println();
 		}
 	}
 	
