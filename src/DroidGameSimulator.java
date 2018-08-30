@@ -6,6 +6,7 @@ public class DroidGameSimulator {
 		for(DroidCell cell : game.getBoard())
 			for(Droid droid : team.getDroidsList())	
 				droid.analyzeCell(cell);
+				game.printBoard(game.getHeight(), game.getWidth());
 				
 	}
 }

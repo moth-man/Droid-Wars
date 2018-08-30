@@ -13,7 +13,7 @@ public class DroidGame {
 	 * Takes in dimensions and array of team names.
 	 */
 	public DroidGame(int height, int width, String[] teamNames) {
-		this.height = height;
+		this.setHeight(height);
 		this.width = width;
 		this.board = new DroidCell[height*width];
 		this.teamNames = teamNames;
@@ -40,6 +40,7 @@ public class DroidGame {
 		
 	}
 	
+	// Setters & Getters
 	public DroidCell[] getBoard() {
 		return board;
 	}
@@ -60,12 +61,41 @@ public class DroidGame {
 		this.activeTeam = activeTeam;
 	}
 
-	/*
-	@Override
-	public boolean isOver() {
-		// TODO Auto-generated method stub
-		return false;
+	/* Print Board : Method prints board for each turn (Simulate method)
+	 * 
+	 */
+	public void printBoard(int height, int width){
+		for(int i = 0; i < height; i++){
+			for(int j = 0; j < width; j++){
+				if(i == 0){
+					System.out.print(j);
+				} else if (j == 0){
+					System.out.print(i);
+				} else {
+					System.out.print("-");
+				}
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
 	}
-	*/
+	
+
+	//Height & Width getters & setters
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
 
 }
