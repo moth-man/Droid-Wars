@@ -28,7 +28,7 @@ public class DroidGame {
 		// Picks a random team from droidTeams and assigns a Droid or null space to cell
 		for(int c = 0; c < this.getBoard().length; c++){
 			DroidTeam randomTeam = droidTeams.get((int)Math.random()*teamNames.length);
-			Droid droidOrNull = Math.random() < 0.15? new Droid(randomTeam.getName()):null;
+			Droid droidOrNull = Math.random() < 0.15 ? new Droid(randomTeam.getName()) : null;
 			
 			// Adds droid to DroidsList on specified random team
 			if(droidOrNull != null)
@@ -67,12 +67,11 @@ public class DroidGame {
 	public void printBoard(int height, int width){
 		for(int i = 0; i < height; i++){
 			for(int j = 0; j < width; j++){
-				for(DroidCell cell : this.getBoard()){
 					if(i == 0){
 						System.out.print(j);
 					} else if(j == 0){
 						System.out.print(i);
-					} else if(cell.getDroid() == null){
+					} else if(droidNotInBoardCell(i+1, j+1) == true){
 						System.out.print("-");
 					} else {
 						System.out.print("X");
@@ -80,8 +79,16 @@ public class DroidGame {
 					System.out.print(" ");
 				}
 				System.out.println();
-			}
 		}
+
+	}
+	
+	public boolean droidNotInBoardCell(int x, int y){
+		for(DroidCell cell : this.getBoard()){
+			if(cell.getPosition().getX() == x && cell.getPosition().getY() == y && cell.isEmpty())
+				return true;
+		}
+		return false;
 	}
 	
 
