@@ -73,8 +73,11 @@ public class DroidGame {
 						System.out.print(i);
 					} else if(droidNotInBoardCell(i+1, j+1) == true){
 						System.out.print("-");
-					} else {
+					} else if(droidNotInBoardCell(i+1, j+1) == false){
 						System.out.print("X");
+					// e for error
+					} else {
+						System.out.print("e");
 					}
 					System.out.print(" ");
 				}
@@ -87,8 +90,10 @@ public class DroidGame {
 		for(DroidCell cell : this.getBoard()){
 			if(cell.getPosition().getX() == x && cell.getPosition().getY() == y && cell.isEmpty())
 				return true;
+			else if(cell.getPosition().getX() == x && cell.getPosition().getY() == y && !cell.isEmpty())
+				return false;
 		}
-		return false;
+		return true;
 	}
 	
 
