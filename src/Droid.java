@@ -9,10 +9,11 @@ public class Droid {
 	private Position position;
 	private List<DroidMove> moves;
 	
+	//Constructor
 	public Droid(String teamName) {
 		this.teamName = teamName;
 		health = (int)Math.random()*10;
-		damage = (int)Math.random()*10;
+		damage = (int)Math.random()*10; 
 		range = 3;
 		
 	}
