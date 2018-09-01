@@ -61,8 +61,8 @@ public class DroidGame {
 		this.activeTeam = activeTeam;
 	}
 
-	/* Print Board : Method prints board for each turn (Simulate method)
-	 * 
+	/* Print Board : Method prints board for each turn, each cell has
+	 * an 'X' if there is a droid, and a '-' if empty.
 	 */
 	public void printBoard(int height, int width){
 		for(int i = 0; i < height; i++){
